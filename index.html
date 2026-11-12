@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUVATRA - Thương Hiệu Yến Sào Đỉnh Cao & Giải Pháp Kỹ Thuật Nhà Yến</title>
+    <style>
+        :root {
+            --primary: #1b4332;
+            --secondary: #d4af37;
+            --accent: #2d6a4f;
+            --bg-light: #fdfbf7;
+            --text-dark: #2c3e50;
+            --white: #ffffff;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--white);
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        header p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        nav {
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            padding: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--secondary);
+        }
+        .container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+        section {
+            background: var(--white);
+            margin-bottom: 2.5rem;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+            border-top: 4px solid var(--secondary);
+        }
+        section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        .hero-banner {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: var(--white);
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .hero-banner h2 {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero-banner p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            header h1 { font-size: 2.2rem; }
+            .hero-banner h2 { font-size: 2rem; }
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .highlight {
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        ul {
+            list-style-type: none;
+            margin-top: 1rem;
+        }
+        ul li {
+            padding: 0.6rem 0;
+            position: relative;
+            padding-left: 1.8rem;
+        }
+        ul li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        .contact-box {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px dashed var(--secondary);
+        }
+        .contact-box p {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background-color: var(--primary);
+            color: var(--white);
+            margin-top: 4rem;
+            box-shadow: inset 0 4px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>HUVATRA</h1>
+        <p>Hùng Vàng Trắng — Đỉnh Cao Yến Sào & Giải Pháp Kỹ Thuật Nhà Yến Bền Vững</p>
+    </header>
+
+    <nav>
+        <a href="#gioi-thieu">Giới Thiệu</a>
+        <a href="#goc-nha-go">Góc Nhà Gỗ</a>
+        <a href="#giai-phap">Giải Pháp Kỹ Thuật</a>
+        <a href="#san-pham">Sản Phẩm & Giá Trị</a>
+        <a href="#lien-he">Liên Hệ</a>
+    </nav>
+
+    <div class="container">
+        
+        <div class="hero-banner">
+            <h2>Trao Đi Giá Trị - Kiến Tạo Niềm Tin</h2>
+            <p>Hơn 2 thập kỷ đúc kết kinh nghiệm thực chiến, tận tâm nghiên cứu và làm chủ công nghệ nhà yến tại Cam Ranh, Khánh Hòa.</p>
+        </div>
+
+        <section id="gioi-thieu">
+            <h2>Về Hùng Vàng Trắng & HUVATRA</h2>
+            <div class="grid-2">
+                <div>
+                    <p>Chào mừng quý đối tác và bà con đến với không gian của <strong>Hùng Vàng Trắng (HUVATRA)</strong>. Trải qua hành trình hơn 20 năm gắn bó, nghiên cứu và vận hành thực tế tại dải đất Cam Ranh nắng gió, chúng tôi thấu hiểu tường tận từng nhịp sinh học của loài chim yến.</p>
+                    <p style="margin-top: 1rem;">Triết lý cốt lõi định hình nên thương hiệu của chúng tôi chính là <span class="highlight">"Trao đi giá trị để nhận lại sự bền vững"</span>. HUVATRA không chỉ cung cấp yến sào thượng hạng nguyên chất 100% mà còn sẵn sàng chuyển giao toàn bộ giải pháp kỹ thuật, giúp chủ đầu tư tối ưu tỷ lệ thành công và phát triển lâu dài.</p>
+                </div>
+                <div>
+                    <div class="card">
+                        <h3>Giá Trị Cốt Lõi</h3>
+                        <p><strong>• Tâm huyết & Tận tụy:</strong> Đặt chất lượng và chữ tín lên hàng đầu trong mọi công trình nhà yến.</p>
+                        <p style="margin-top: 0.8rem;"><strong>• Chuyên gia thực chiến:</strong> Am hiểu sâu sắc về âm thanh, ẩm độ, kết cấu tường khoáng và vi khí hậu chuẩn.</p>
+                        <p style="margin-top: 0.8rem;"><strong>• Lan tỏa tri thức:</strong> Sẵn sàng dìu dắt, chia sẻ kinh nghiệm thực tế cho cộng đồng nuôi yến.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="goc-nha-go">
+            <h2>Góc Nhà Gỗ - Nơi Giao Lưu & Chia Sẻ Tri Thức</h2>
+            <p><strong>Góc Nhà Gỗ</strong> tọa lạc tại khuôn viên rộng 400m² ở Cam Ranh là tâm huyết đặc biệt của ông chủ HUVATRA. Đây là không gian sinh hoạt kỹ thuật ấm cúng, nơi hội tụ những người có cùng niềm đam mê và khát vọng phát triển ngành yến sào Việt Nam.</p>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Thưởng Trà & Đàm Đạo</h3>
+                    <p>Không gian tĩnh lặng, gắn kết những tâm hồn đồng điệu cùng chia sẻ câu chuyện hành nghề.</p>
+                </div>
+                <div class="card">
+                    <h3>Chuyển Giao Kỹ Thuật</h3>
+                    <p>Nơi đúc rút kinh nghiệm thực chiến từ xử lý âm thanh 3D, kiểm soát ẩm độ đến vận hành tự động.</p>
+                </div>
+                <div class="card">
+                    <h3>Cộng Đồng Bền Vững</h3>
+                    <p>Xây dựng hệ sinh thái nuôi yến minh bạch, chia sẻ kiến thức chuẩn xác giúp chủ đầu tư an tâm lập nghiệp.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="giai-phap">
+            <h2>Giải Pháp Kỹ Thuật Nhà Yến Toàn Diện</h2>
+            <p>HUVATRA cung cấp các giải pháp tối ưu từ tư vấn, thiết kế đến vận hành:</p>
+            <div class="grid-2" style="margin-top: 1.5rem;">
+                <div>
+                    <ul>
+                        <li><strong>Khảo sát & Thiết kế kiến trúc:</strong> Tối ưu hướng bay, kết cấu tường, không gian lưu trú của chim yến.</li>
+                        <li><strong>Hệ thống Âm thanh chuyên sâu:</strong> Ma trận âm thanh định vị và loa dẫn dụ độc quyền thu hút chim cực nhanh.</li>
+                        <li><strong>Vi khí hậu chuẩn GACC:</strong> Kiểm soát nhiệt độ, ẩm độ tự động tái tạo hang động tự nhiên.</li>
+                        <li><strong>Bảo trì & Khử khuẩn:</strong> Giải pháp chống dịch bệnh, xử lý mùi an toàn, bảo vệ nhà yến ổn định lâu dài.</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-left-color: var(--primary);">
+                    <h3>Cam Kết Đồng Hành</h3>
+                    <p>Mỗi công trình nhà yến do HUVATRA trực tiếp tư vấn và hỗ trợ kỹ thuật đều được theo dõi sát sao, đảm bảo tỷ lệ chim quy tụ cao và đem lại giá trị kinh tế thực chất, bền vững cho chủ đầu tư.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="san-pham">
+            <h2>Yến Sào Thượng Hạng HUVATRA</h2>
+            <p>Tinh hoa từ những nhà yến tiêu chuẩn được chăm chút kỹ lưỡng tại Cam Ranh:</p>
+            <div class="grid-3" style="margin-top: 1.5rem;">
+                <div class="card">
+                    <h3>Yến Thô Nguyên Chất</h3>
+                    <p>Tổ yến nguyên chất 100% khai thác trực tiếp, giữ trọn vẹn hương vị và dưỡng chất tự nhiên.</p>
+                </div>
+                <div class="card">
+                    <h3>Yến Tinh Chế Cao Cấp</h3>
+                    <p>Làm sạch tỉ mỉ thủ công, không hóa chất, sợi yến nở đều, thơm ngon và giàu dinh dưỡng.</p>
+                </div>
+                <div class="card">
+                    <h3>Sản Phẩm Dưỡng Sinh</h3>
+                    <p>Kết hợp yến sào cùng các dược liệu Đông y truyền thống, tốt cho sức khỏe và bồi bổ cơ thể.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="lien-he">
+            <h2>Kết Nối Cùng Ông Chủ HUVATRA</h2>
+            <p>Quý bà con, đối tác cần tư vấn kỹ thuật nhà yến, tham quan mô hình Góc Nhà Gỗ hoặc tìm hiểu sản phẩm yến sào thượng hạng, xin vui lòng liên hệ:</p>
+            <div class="contact-box" style="margin-top: 1.5rem;">
+                <p><strong>Ông chủ:</strong> Nguyễn Duy Hùng (Hùng Vàng Trắng)</p>
+                <p><strong>Hotline / Zalo:</strong> <span class="highlight">0974 002 626</span></p>
+                <p><strong>Địa chỉ:</strong> Cam Ranh, Khánh Hòa, Việt Nam</p>
+                <p style="margin-top: 1rem; color: var(--primary); font-weight: 600;">HUVATRA — Trao Đi Giá Trị, Gặt Hái Niềm Tin!</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 HUVATRA (Hùng Vàng Trắng). All rights reserved. Designed with dedication & excellence.</p>
+    </footer>
+
+</body>
+</html>
